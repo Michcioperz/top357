@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+// this font is OFL licensed thank you very much
+@font-face {
+    font-family: "Patrick Hand";
+    src: url(./PatrickHand-Regular.ttf);
+}
+
+$font-src: false;
+$header-font: "Patrick Hand";
+$body-font: "Patrick Hand";
+
+@import "../node_modules/papercss/src/styles.scss";
