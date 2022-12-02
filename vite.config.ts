@@ -4,6 +4,10 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svelte()],
+  build: {
+    target: ["chrome89", "firefox89", "safari15"],
+    sourcemap: true,
+  },
   // server: {
   //   proxy: {
   //     '/samples': {
