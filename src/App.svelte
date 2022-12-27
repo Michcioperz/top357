@@ -14,16 +14,18 @@
   export let changeChoice: (id: number, chosen: boolean) => void;
   export let move: (dir: number) => void;
   let currentNode: HTMLElement;
+  let central: HTMLElement;
   let results: HTMLElement;
   let scrollside: HTMLElement;
 
   afterUpdate(() => {
-    console.log({ currentNode, currentTrack });
-    currentNode.scrollIntoView({ behavior: "smooth", block: "center" });
+    central.scrollTo({
+      top: currentNode.offsetTop - central.offsetHeight / 2,
+      behavior: "smooth",
+    });
 
     const letterChild = scrollside.children[currentInitial] as HTMLElement;
-    console.log({ letterChild, currentInitial, scrollside });
-    const letterOffset = letterChild.offsetTop - letterChild.offsetHeight;
+    const letterOffset = letterChild.offsetTop - scrollside.offsetHeight / 2;
     scrollside.scrollTo({
       top: letterOffset,
       behavior: "smooth",
@@ -117,7 +119,7 @@
       <button class="btn-small btn-success" on:click={upvote}>+</button>
     </div>
   </div>
-  <div class="central">
+  <div class="central" bind:this={central}>
     <div class="paper container">
       <div class="selection-list flex-spaces">
         {#each pool as track, idx (track.id)}
