@@ -2,7 +2,7 @@ import "./app.scss";
 import App from './App.svelte'
 import type { SourceFile } from './sourcetypes';
 
-const sourceFile: SourceFile = await fetch("https://api.lista.radio357.pl/api/charts/current/polski-top").then(resp => resp.json());
+const sourceFile: SourceFile = await fetch("https://api.glosuj.radio357.pl/api/charts/current/top").then(resp => resp.json());
 const data = sourceFile.data;
 const title = `${data.name} #${data.no}`;
 const pool = sourceFile.data.tracks;
